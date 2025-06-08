@@ -8,7 +8,8 @@ public class SPBUMain {
         QueueTransaksi transaksiQueue = new QueueTransaksi(100);
         Scanner sc = new Scanner(System.in);
 
-        while (true) {
+        int pilihan;
+        do {
             System.out.println("\n --- MENU SPBU ---");
             System.out.println("1. Tambah Kendaraan ke Antrian");
             System.out.println("2. Tampilkan Antrian");
@@ -17,7 +18,7 @@ public class SPBUMain {
             System.out.println("5. Tampilkan Riwayat Transaksi");
             System.out.println("0. Keluar");
             System.out.print("Pilihan: ");
-            int pilihan = sc.nextInt();
+            pilihan = sc.nextInt();
             sc.nextLine();
 
             switch (pilihan) {
@@ -30,18 +31,14 @@ public class SPBUMain {
                     String merk = sc.nextLine();
                     antrian.tambahAntrian(new Kendaraan(plat, tipe, merk));
                     System.out.println(">> Kendaraan masuk ke dalam antrian.");
-
                     break;
-
                 case 2:
                     System.out.println("--- Antrian Kendaraan ---");
                     antrian.tampilkanAntrian();
                     break;
-
                 case 3:
                     System.out.println("Jumlah Kendaraan dalam Antrian: " + antrian.hitungAntrian());
                     break;
-
                 case 4:
                     Kendaraan k = antrian.layaniKendaraan();
                     if (k != null) {
@@ -61,16 +58,16 @@ public class SPBUMain {
                         System.out.println("Antrian kosong.");
                     }
                     break;
-
                 case 5:
                     System.out.println("--- Riwayat Transaksi ---");
                     transaksiQueue.tampilkanRiwayat();
                     break;
-
                 case 0:
                     System.out.println("Keluar dari program.");
                     return;
+                default:
+                    System.out.println("Pilihan tidak valid!");
             }
-        }
+        } while (pilihan != 0);
     }
 }
