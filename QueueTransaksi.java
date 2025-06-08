@@ -20,9 +20,9 @@ public class QueueTransaksi {
     }
 
     public void tampilkanRiwayat() {
+        System.out.println("Daftar Transaksi :");
         for (int i = 0; i < size; i++) {
             transaksi[i].tampilkanTransaksi();
-            System.out.println("-----------");
         }
     }
 }
