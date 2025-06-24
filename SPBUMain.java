@@ -16,6 +16,8 @@ public class SPBUMain {
             System.out.println("3. Cek Jumlah Antrian Kendaraan");
             System.out.println("4. Layani Kendaraan");
             System.out.println("5. Tampilkan Riwayat Transaksi");
+            System.out.println("6. Tampilkan Riwayat Transaksi Berdasarkan Jumlah Liter BBM");
+            System.out.println("7. Tampilkan Riwayat Transaksi Berdasarkan Total Bayar Tertinggi");
             System.out.println("0. Keluar");
             System.out.print("Pilihan: ");
             pilihan = sc.nextInt();
@@ -29,7 +31,9 @@ public class SPBUMain {
                     String tipe = sc.nextLine();
                     System.out.print("Merk: ");
                     String merk = sc.nextLine();
-                    antrian.tambahAntrian(new Kendaraan(plat, tipe, merk));
+                    System.out.print("Warna: ");
+                    String warna = sc.nextLine();
+                    antrian.tambahAntrian(new Kendaraan(plat, tipe, merk, warna));
                     System.out.println(">> Kendaraan masuk ke dalam antrian.");
                     break;
                 case 2:
@@ -61,6 +65,14 @@ public class SPBUMain {
                 case 5:
                     System.out.println("--- Riwayat Transaksi ---");
                     transaksiQueue.tampilkanRiwayat();
+                    break;
+                case 6:
+                    System.out.println("--- Riwayat Transaksi Berdasarkan Jumlah Liter BBM ---");
+                    transaksiQueue.transaksiKendaraanBerdasarkanJumlahLiter();
+                    break;
+                case 7:
+                    System.out.println("--- Riwayat Transaksi Berdasarkan Total Bayar Tertinggi ---");
+                    transaksiQueue.transaksiKendaraanBerdasarkanTotalBayar();
                     break;
                 case 0:
                     System.out.println("Keluar dari program.");

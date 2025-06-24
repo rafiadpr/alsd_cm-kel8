@@ -11,6 +11,6 @@ public class TransaksiPengisian {
     }
 
     public void tampilkanTransaksi() {
-        System.out.println(kendaraan.platNomor + ": " + totalBayar);
+        System.out.println(kendaraan.platNomor + " (" + liter + " Liter)" + " : " + totalBayar);
     }
 }
